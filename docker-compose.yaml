@@ -1,0 +1,17 @@
+# Reference: https://github.com/bitnami/bitnami-docker-redis/blob/master/docker-compose.yml
+version: '2'
+
+services:
+  redis:
+    image: docker.io/bitnami/redis:6.2
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - '6379:6379'
+    volumes:
+      - './redis_data:/bitnami/redis/data'
+
+volumes:
+  redis_data:
+    driver: local
